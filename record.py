@@ -7,26 +7,25 @@ class Record():
         self.phones = []
         
     def add_phone(self, phone):
-        self.phone = Phone(phone)
-        self.phones.append(phone)
+        self.phones.append(Phone(phone))
 
     def remove_phone(self, phone):
-        self.phone = Phone(phone)
-        self.phones.remove(phone)
+        for i in self.phones:
+            if i.value == phone:
+                self.phones.remove(i)
 
     def edit_phone(self, phone, new_phone):
-        self.phone = Phone(phone)
-        self.new_phone = Phone(new_phone)
-        for i in range(len(self.phones)):
-            if self.phones[i] == phone:
-                self.phones[i] = new_phone
+        for i in self.phones:
+            if i.value == phone:
+                i.value = new_phone
 
     def find_phone(self, phone):
-        if phone in self.phones:
-            return Phone(phone)
+        for i in self.phones:
+            if i.value == phone:
+                return i 
 
     def __str__(self):
-        return f"Contact name: {self.name}, phones: {'; '.join(p for p in self.phones)}"
+        return f"Contact name: {self.name.value}, phones: {'; '.join(p.value for p in self.phones)}"
     
 # john_record = Record("John")
 # john_record.add_phone("1234567890")
