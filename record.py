@@ -17,7 +17,7 @@ class Record():
     def edit_phone(self, phone, new_phone):
         for i in self.phones:
             if i.value == phone:
-                i.value = new_phone
+                i = Phone(new_phone)
 
     def find_phone(self, phone):
         for i in self.phones:
