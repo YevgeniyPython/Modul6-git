@@ -15,9 +15,9 @@ class Record():
                 self.phones.remove(i)
 
     def edit_phone(self, phone, new_phone):
-        for i in self.phones:
-            if i.value == phone:
-                i = Phone(new_phone)
+        for i in range(len(self.phones)):
+            if self.phones[i].value == phone:
+                self.phones[i]=Phone(new_phone)
 
     def find_phone(self, phone):
         for i in self.phones:
